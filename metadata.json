@@ -1,0 +1,6 @@
+{
+  "name": "Bloom",
+  "description": "Bloom 🌷❤️ - My Study Buddy: personal digital study planner, timetable, semester results, and productivity tracker.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

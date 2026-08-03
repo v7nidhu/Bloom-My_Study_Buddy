@@ -1,0 +1,118 @@
+{
+  "entities": {
+    "User": {
+      "path": "users/{userId}",
+      "fields": {
+        "email": "string",
+        "displayName": "string",
+        "photoURL": "string",
+        "createdAt": "timestamp"
+      }
+    },
+    "Subject": {
+      "path": "users/{userId}/subjects/{subjectId}",
+      "fields": {
+        "name": "string",
+        "code": "string",
+        "color": "string",
+        "totalTopics": "number",
+        "completedTopics": "number",
+        "targetGrade": "string",
+        "credits": "number",
+        "instructor": "string",
+        "room": "string"
+      }
+    },
+    "Timetable": {
+      "path": "users/{userId}/timetable/{slotId}",
+      "fields": {
+        "day": "string",
+        "startTime": "string",
+        "endTime": "string",
+        "subjectName": "string",
+        "subjectColor": "string",
+        "room": "string",
+        "type": "string"
+      }
+    },
+    "Task": {
+      "path": "users/{userId}/tasks/{taskId}",
+      "fields": {
+        "title": "string",
+        "subject": "string",
+        "dueDate": "string",
+        "priority": "string",
+        "status": "string",
+        "description": "string"
+      }
+    },
+    "SemesterResult": {
+      "path": "users/{userId}/semesters/{semId}",
+      "fields": {
+        "semesterName": "string",
+        "sgpa": "number",
+        "cgpa": "number",
+        "courses": "array"
+      }
+    },
+    "Note": {
+      "path": "users/{userId}/notes/{noteId}",
+      "fields": {
+        "title": "string",
+        "subject": "string",
+        "content": "string",
+        "tags": "array",
+        "updatedAt": "string"
+      }
+    },
+    "StudyGoal": {
+      "path": "users/{userId}/goals/{goalId}",
+      "fields": {
+        "title": "string",
+        "targetHours": "number",
+        "currentHours": "number",
+        "deadline": "string",
+        "category": "string",
+        "completed": "boolean"
+      }
+    },
+    "CalendarEvent": {
+      "path": "users/{userId}/events/{eventId}",
+      "fields": {
+        "title": "string",
+        "date": "string",
+        "type": "string",
+        "subject": "string",
+        "description": "string"
+      }
+    },
+    "Reminder": {
+      "path": "users/{userId}/reminders/{reminderId}",
+      "fields": {
+        "title": "string",
+        "dateTime": "string",
+        "type": "string",
+        "completed": "boolean",
+        "priority": "string"
+      }
+    },
+    "StudySession": {
+      "path": "users/{userId}/studySessions/{sessionId}",
+      "fields": {
+        "subject": "string",
+        "durationMinutes": "number",
+        "date": "string",
+        "notes": "string"
+      }
+    }
+  },
+  "security": [
+    {
+      "path": "users/{userId}/{document=**}",
+      "allow": {
+        "read": "request.auth != null && request.auth.uid == userId",
+        "write": "request.auth != null && request.auth.uid == userId"
+      }
+    }
+  ]
+}
